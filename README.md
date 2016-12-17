@@ -3,9 +3,11 @@ How to set up Ubuntu 14.04 for deep learning using Tensorflow v.0.12 on TitanX G
 
 My instruction is a compilation from the following sources, plus some additional information:
 
-* https://www.linkedin.com/pulse/building-personal-deep-learning-rig-gtx-1080-ubuntu-1604-ning
-* https://www.pugetsystems.com/labs/hpc/Install-Ubuntu-16-04-or-14-04-and-CUDA-8-and-7-5-for-NVIDIA-Pascal-GPU-825/
-* http://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
+https://www.linkedin.com/pulse/building-personal-deep-learning-rig-gtx-1080-ubuntu-1604-ning
+
+https://www.pugetsystems.com/labs/hpc/Install-Ubuntu-16-04-or-14-04-and-CUDA-8-and-7-5-for-NVIDIA-Pascal-GPU-825/
+
+http://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
 
 
 **Hardware**
@@ -276,7 +278,7 @@ NOTE: The CUDA Samples are not meant for performance measurements. Results may v
 
 ## Install cuDNN
 **Step 23**
-Register on NVidia's website. It may take a day, or two before they'll get your account approved. At least that used to be the case back when I registered.
+Register on NVidia's website. It may take a day, or two before they'll get your account approved. 
 
 **Step 24**
 Download and Install latest CUDNN from NVidia, or the latest version that fits the software you'll be working with, if any, in this case your version of TFlow. I downloaded the archive and not the deb installer.
@@ -286,3 +288,19 @@ Unzip the archive and copy the cudnn header file into the cuda include folder
 ```
 sudo cp cudnn.h /usr/local/cuda/include/
 ```
+**Step 26**
+Copy the cudnn libraries into the cuda lib folder. At this point I had a problem if I simply copied all the .so files. In this case tensorflow was not able to load cudnn library complaining about LD_LIBRARY_PATH. The solution was to copy just a single DLL instead and create two SYMLINKs. Finally, call ldconfig to update the library path
+```
+sudo cp libcudnn.so.5.1.5 /usr/local/cuda/lib64
+cd /usr/local/cuda/lib64
+ln -s libcudnn.so.5.1.5 libcudnn.so.5 
+ln -s libcudnn.so.5 libcudnn.so
+sudo ldconfig
+```
+
+## Install tensorflow
+Follow the instructions [here](https://www.tensorflow.org/get_started/os_setup)
+
+## Verify that tensorflow actually runs on the GPU
+Follow the instructions [here](https://www.tensorflow.org/versions/master/how_tos/using_gpu/)
+
