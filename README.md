@@ -82,3 +82,21 @@ sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt-get update
 sudo apt-get install nvidia-367
 ```
+
+## CUDA install, setup and fixes
+**Dependencies**
+
+We are doing a manual CUDA toolkit install since we want both version 7.5 and 8.0rc (and since the packaged .deb and .rpm files are basically broken right now!)
+
+I did a "dry-run" CUDA install from the deb files to pull a list of system packages that would get installed as dependencies (outside of the CUDA repo). You may or may not need these, but it is what the old (working) deb install from the CUDA repo would have pulled in. I put them in a file called cuda-deps... sorry for the long scroll line but I didn't want any line breaks in there in case you want to copy that to a file.
+
+Step 11
+```
+cat cuda-deps 
+ca-certificates-java default-jre default-jre-headless fonts-dejavu-extra freeglut3 freeglut3-dev java-common libatk-wrapper-java libatk-wrapper-java-jni  libdrm-dev libgl1-mesa-dev libglu1-mesa-dev libgnomevfs2-0 libgnomevfs2-common libice-dev libpthread-stubs0-dev libsctp1 libsm-dev libx11-dev libx11-doc libx11-xcb-dev libxau-dev libxcb-dri2-0-dev libxcb-dri3-dev libxcb-glx0-dev libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev libxcb-shape0-dev libxcb-sync-dev libxcb-xfixes0-dev libxcb1-dev libxdamage-dev libxdmcp-dev libxext-dev libxfixes-dev libxi-dev libxmu-dev libxmu-headers libxshmfence-dev libxt-dev libxxf86vm-dev lksctp-tools mesa-common-dev  x11proto-core-dev x11proto-damage-dev  x11proto-dri2-dev x11proto-fixes-dev x11proto-gl-dev x11proto-input-dev x11proto-kb-dev x11proto-xext-dev x11proto-xf86vidmode-dev xorg-sgml-doctools xtrans-dev libgles2-mesa-dev
+```
+If you put those package names in a file called cuda-deps you can do the following to install them easily,
+Step 12
+```
+cat cuda-deps | xargs sudo apt-get -y install
+```
