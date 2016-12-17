@@ -199,7 +199,7 @@ cd /usr/local/cuda-8.0/samples
 sudo make
 ```
 
-**Step 20** Run the deviceQuery sample:
+**Step 21** Run the deviceQuery sample:
 ```
 /usr/local/cuda-8.0/samples/bin/x86_64/linux/release/deviceQuery
 /usr/local/cuda-8.0/samples/bin/x86_64/linux/release/deviceQuery Starting...
@@ -245,7 +245,7 @@ deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 8.0, CUDA Runtime Versi
 Result = PASS
 ```
 
-**Step 20** Run the bandwidthTest sample:
+**Step 22** Run the bandwidthTest sample:
 ```
 /usr/local/cuda-8.0/samples/bin/x86_64/linux/release/bandwidthTest
 [CUDA Bandwidth Test] - Starting...
@@ -273,3 +273,14 @@ Result = PASS
 
 NOTE: The CUDA Samples are not meant for performance measurements. Results may vary when GPU Boost is enabled.
 ```
+
+## Install cuDNN
+**Step 23**
+Register on NVidia's website. It may take a day, or two before they'll get your account approved. At least that used to be the case back when I registered.
+
+**Step 24**
+Download and Install latest CUDNN from NVidia, or the latest version that fits the software you'll be working with, if any, in this case your version of TFlow. I downloaded the archive and not the deb installer.
+
+**Step 25**
+Unzip the archive and copy the cudnn header file into `/usr/local/cuda/include'
+
