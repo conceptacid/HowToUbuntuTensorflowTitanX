@@ -282,5 +282,7 @@ Register on NVidia's website. It may take a day, or two before they'll get your 
 Download and Install latest CUDNN from NVidia, or the latest version that fits the software you'll be working with, if any, in this case your version of TFlow. I downloaded the archive and not the deb installer.
 
 **Step 25**
-Unzip the archive and copy the cudnn header file into `/usr/local/cuda/include'
-
+Unzip the archive and copy the cudnn header file into the cuda include folder
+```
+sudo cp cudnn.h /usr/local/cuda/include/
+```
