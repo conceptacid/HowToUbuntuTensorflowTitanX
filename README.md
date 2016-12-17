@@ -1,12 +1,11 @@
 # Setting up Ubuntu machine for deep learning using Tensorflow on NVIDIA GPU (TitanX)
 How to set up Ubuntu 14.04 for deep learning using Tensorflow v.0.12 on TitanX GPU
 
-My instruction is a compilation from the following sources:
+My instruction is a compilation from the following sources, plus some additional information:
 
-https://www.linkedin.com/pulse/building-personal-deep-learning-rig-gtx-1080-ubuntu-1604-ning
-https://www.pugetsystems.com/labs/hpc/Install-Ubuntu-16-04-or-14-04-and-CUDA-8-and-7-5-for-NVIDIA-Pascal-GPU-825/
-http://askubuntu.com/questions/272796/connecting-to-archive-ubuntu-com-takes-too-long
-http://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
+* https://www.linkedin.com/pulse/building-personal-deep-learning-rig-gtx-1080-ubuntu-1604-ning
+* https://www.pugetsystems.com/labs/hpc/Install-Ubuntu-16-04-or-14-04-and-CUDA-8-and-7-5-for-NVIDIA-Pascal-GPU-825/
+* http://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
 
 
 **Hardware**
@@ -100,6 +99,9 @@ If you put those package names in a file called cuda-deps you can do the followi
 ```
 cat cuda-deps | xargs sudo apt-get -y install
 ```
+At this point I had a problem with IPv6: the packages were not downloaded as the progress stuck at 0%
+In order to resolve it I switched off IPv6 according to the instructions on [this page](http://askubuntu.com/questions/272796/connecting-to-archive-ubuntu-com-takes-too-long)
+
 
 ## CUDA toolkit installs
 
@@ -111,9 +113,8 @@ You can run the scripts and answer the prompts or you can do,
 ```
 ./cuda_7.5.18_linux.run --help
 ```
-
-**Step 14**
 to see the script options. Then, if you trust me, you can do the following,
+**Step 14**
 ```
 chmod 755 cuda_*
 ./cuda_7.5.18_linux.run --silent --toolkit --samples --samplespath=/usr/local/cuda-7.5/samples --override
