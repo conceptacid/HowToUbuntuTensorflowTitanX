@@ -1,4 +1,4 @@
-# HowToUbuntuTensorflowTitanX
+# Setting up Ubuntu machine for deep learning using Tensorflow on NVIDIA GPU (TitanX)
 How to set up Ubuntu 14.04 for deep learning using Tensorflow v.0.12 on TitanX GPU
 
 My instruction is a compilation from the following sources:
@@ -20,3 +20,14 @@ See the comments at the bottom of [the page](https://www.pugetsystems.com/labs/h
 
 2. Follow the instructions to install Ubuntu, but DONT install any graphica user interface yet!
 
+3. On the first reboot press 'e' to edit GRUB if need something. See [this page](https://www.pugetsystems.com/labs/hpc/Install-Ubuntu-16-04-or-14-04-and-CUDA-8-and-7-5-for-NVIDIA-Pascal-GPU-825/) for details. 
+
+4. Log in to the command line
+
+5. Updates, desktop environment, extra packages and grub update Pretty much everything from here on will need to be done as root so add sudo to the beginning of the commands or just sudo -s to get a root shell.
+
+**Do updates.**
+```
+apt-get update
+apt-get dist-upgrade
+```
