@@ -16,4 +16,7 @@ http://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_instal
 ## Install Ubuntu 14.04 server
 See the comments at the bottom of [the page](https://www.pugetsystems.com/labs/hpc/Install-Ubuntu-16-04-or-14-04-and-CUDA-8-and-7-5-for-NVIDIA-Pascal-GPU-825/) if you are deciding between Ubuntu 16 and Ubuntu 14.
 
-1. Download Ubuntu 14.04 Server ISO, make a bootable USB stick using e.g. (Rufus) [https://rufus.akeo.ie/]
+1. Download Ubuntu 14.04 Server ISO, make a bootable USB stick using e.g. [Rufus] (https://rufus.akeo.ie/)
+
+2. Follow the instructions to install Ubuntu, but DONT install any graphica user interface yet!
+
